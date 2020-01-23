@@ -20,6 +20,7 @@ export default class PriceButtonView {
   
       this.button = element.querySelector(".PriceButton");
       this.prices = element.querySelector(".PriceButtonPrices");
+      this.button.classList.add('button')
   
       return element;
     }
@@ -30,6 +31,7 @@ export default class PriceButtonView {
       this.button.innerHTML = `<strong>£ ${bestPrice}.00</strong>`;
   
       this.button.addEventListener("click", () => onPriceButtonClick());
+      this.button.classList.add('button')
     }
   
     renderAdditionalPricesState(props) {
