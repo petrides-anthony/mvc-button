@@ -11,9 +11,9 @@ export default class PriceButtonController {
       this.mountedOn = element;
       this.mountedOn.appendChild(this.priceButtonView.getElement());
   
-      setTimeout(() => {
+      setTimeout(async() => {
         this.priceButtonView.renderLoadedState({
-          bestPrice: getCheapestPrice(),
+          bestPrice: await getCheapestPrice(),
           onPriceButtonClick: () => this.onPriceButtonClick()
         });
       }, 5000);
