@@ -1,3 +1,5 @@
+import { getCheapestPrice } from './request'
+
 export default class PriceButtonController {
     constructor(priceButtonView) {
       this.priceButtonView = null;
@@ -11,7 +13,7 @@ export default class PriceButtonController {
   
       setTimeout(() => {
         this.priceButtonView.renderLoadedState({
-          bestPrice: 10,
+          bestPrice: getCheapestPrice(),
           onPriceButtonClick: () => this.onPriceButtonClick()
         });
       }, 5000);

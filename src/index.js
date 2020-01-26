@@ -1,7 +1,7 @@
 import PriceButtonController from "./PriceButtonController";
 import PriceButtonView from "./PriceButtonView";
 
-import "./styles.css";
+// import "./public/styles/styles.css";
 
 /*
 API data https://5e17a1c9505bb50014720dc6.mockapi.io/pricetestapi/prices

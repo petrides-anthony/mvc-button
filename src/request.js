@@ -1,18 +1,22 @@
 const fetch = require("node-fetch");
 const priceApi = "https://5e17a1c9505bb50014720dc6.mockapi.io/pricetestapi/prices"
 
-const fetchPrices = () => {
-    fetch(priceApi)
-      .then(response => {
-        if (response.status !== 200) {
-          throw new Error("Error");
-        }
+  const getPriceData = async () => {
+  const response = await fetch(priceApi)
   
-        return response.json();
-      })
-      .then(data => console.log("useFetch", data))
-      .catch(e => console.log(e));
-  };
+    if (response.status === 200) {
+        const data = await response.json()
+        return data
+    } else {
+        throw new Error('Unable to get prices')
+    }
+  }
 
-  fetchPrices();
+  const getCheapestPrice =  async () => {
+    const priceList = await getPriceData()
+    const pricesOnly = priceList.map(({ price }) => price)
+    const cheapestPrice = Math.min(...pricesOnly)
+    return cheapestPrice
+}
 
+export { getCheapestPrice }
