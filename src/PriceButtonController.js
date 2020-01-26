@@ -1,4 +1,4 @@
-import { getCheapestPrice } from './request'
+import { getCheapestPrice, getFivePrices } from './request'
 
 export default class PriceButtonController {
     constructor(priceButtonView) {
@@ -16,13 +16,12 @@ export default class PriceButtonController {
           bestPrice: await getCheapestPrice(),
           onPriceButtonClick: () => this.onPriceButtonClick()
         });
-      }, 5000);
+      }, 1000);
     }
   
-    onPriceButtonClick() {
+    async onPriceButtonClick() {
       this.priceButtonView.renderAdditionalPricesState({
-        additionalPrices: [2, 5, 7]
+        additionalPrices: await getFivePrices()
       });
-    }
+    }    
   }
-  

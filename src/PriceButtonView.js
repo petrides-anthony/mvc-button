@@ -28,16 +28,17 @@ export default class PriceButtonView {
     renderLoadedState(props) {
       const { bestPrice = 0, onPriceButtonClick } = props;
       this.button.removeAttribute("disabled");
-      this.button.innerHTML = `<strong>£ ${bestPrice}.00</strong>`;
+      this.button.innerHTML = `<strong>£${bestPrice}.00</strong>`;
   
       this.button.addEventListener("click", () => onPriceButtonClick());
       this.button.classList.add('button')
     }
-  
+
     renderAdditionalPricesState(props) {
       const { additionalPrices = [] } = props;
-      const pricesList = additionalPrices.map(price => `<li>£ ${price}.00</li>`);
-      this.prices.innerHTML = `<ul>${pricesList.join("")}</ul>`;
+      const bulletedPrices = '<ul><li>' + `${additionalPrices.map(x => '£' + x).join('</li><li>')}` + '</li></ul>';
+      this.prices.innerHTML = `${bulletedPrices}`
+      this.prices.classList.add('priceList')
     }
   }
   
