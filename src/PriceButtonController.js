@@ -1,10 +1,10 @@
 import { getCheapestPrice, getFivePrices } from './request'
+import PriceButtonView from "./PriceButtonView";
 
 export default class PriceButtonController {
-    constructor(priceButtonView) {
-      this.priceButtonView = null;
+  constructor() {
+      this.priceButtonView = new PriceButtonView()
       this.mountedOn = null;
-      this.priceButtonView = priceButtonView;
     }
   
     mount(element) {
@@ -23,5 +23,5 @@ export default class PriceButtonController {
       this.priceButtonView.renderAdditionalPricesState({
         additionalPrices: await getFivePrices()
       });
-    }    
-  }
+    }
+}

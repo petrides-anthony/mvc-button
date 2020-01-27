@@ -1,6 +1,5 @@
 import PriceButtonController from "./PriceButtonController";
-import PriceButtonView from "./PriceButtonView";
 
-new PriceButtonController(new PriceButtonView()).mount(
+new PriceButtonController().mount(
   document.getElementById("app")
 );
